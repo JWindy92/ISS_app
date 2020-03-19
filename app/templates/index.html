@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>AJAX Playgroud</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    </head>
+    <body>
+        <div class="header"><h1>I.S.S. Data</h1></div>
+        
+        <div id="main-content">
+            <div id="current">
+                <h2>Current Location</h2>
+                <p>Latitude: <span id="latitude"></span></p>
+                <p>Longitude: <span id="longitude"></span></p>
+            </div>
+            <div id="pass-times">
+                <h2>Get Pass Times</h2>
+                <div class="form">
+                    <label for="lat-input">Latitude:</label>
+                    <input type="text" id="lat-input" name="lat-input"><br><br>
+                    <label for="long-input">Longitude:</label>
+                    <input type="text" id="long-input" name="long-input"><br><br>
+                    <button id="pass-time-submit">Submit</button>
+                </div>
+                <div class="results">
+                    <ul id="time-list">
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <script src="{{ url_for('static', filename='script.js') }}" async defer></script>
+    </body>
+</html>
