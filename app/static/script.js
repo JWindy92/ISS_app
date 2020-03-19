@@ -34,7 +34,7 @@ function getData() {
 function getPassTimes() {
 	var lat = document.getElementById('lat-input').value;
 	var long = document.getElementById('long-input').value;
-	var url = '/_test'
+	var url = '/_test/'+lat+'/'+long
 	fetch(url)
 		.then(
 			function(response) {

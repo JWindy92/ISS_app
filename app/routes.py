@@ -6,7 +6,7 @@ import requests
 def index():
     return render_template('index.html')
 
-@app.route('/_test')
-def test():
-    return requests.get('http://api.open-notify.org/iss-pass.json?lat=34&lon=34').json()
+@app.route('/_test/<float:lat>/<float:long>')
+def test(lat, long):
+    return requests.get(f'http://api.open-notify.org/iss-pass.json?lat={lat}&lon={long}').json()
     
