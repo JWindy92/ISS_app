@@ -13,17 +13,24 @@
     </head>
     <body>
         <div class="header"><h1>I.S.S. Data</h1></div>
-        
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
         <div id="main-content">
             <div id="current">
                 <h2>Current Location</h2>
                 <p>Latitude: <span id="latitude"></span></p>
                 <p>Longitude: <span id="longitude"></span></p>
             </div>
+
             <div id="pass-times">
                 <h2>Get Pass Times</h2>
-                <p style="color: red;">Please enter numbers as floats i.e. 52.3 or 23.0</p>
-                <p style="color: red;">Application still in development</p>
                 <div class="form">
                     <label for="lat-input">Latitude:</label>
                     <input type="text" id="lat-input" name="lat-input"><br><br>
@@ -36,6 +43,14 @@
 
                     </ul>
                 </div>
+            </div>
+
+            
+            <div>
+                <h2>There are currently <span id="num-astros"></span> astronauts in space</h2>
+                <ul id='astros-list'>
+                    
+                </ul>
             </div>
         </div>
         

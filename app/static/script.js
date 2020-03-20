@@ -1,12 +1,12 @@
 console.log("Hello");
 
 window.onload = function(){ 
+	this.getAstronauts();
 	this.getData();
 	this.setInterval(this.getData, 5000);
 }
 
 var pass_time_submit = document.getElementById("pass-time-submit");
-
 pass_time_submit.addEventListener("click", getPassTimes);
 
 function getData() {
@@ -34,7 +34,7 @@ function getData() {
 function getPassTimes() {
 	var lat = document.getElementById('lat-input').value;
 	var long = document.getElementById('long-input').value;
-	var url = '/_test/'+lat+'/'+long
+	var url = '/_pass_times/'+lat+'/'+long
 	fetch(url)
 		.then(
 			function(response) {
@@ -71,3 +71,27 @@ function getPassTimes() {
 		});
 }
 
+function getAstronauts() {
+	fetch("/_get_astronauts")
+		.then(
+			function(response) {
+				if (response.status !== 200) {
+					console.log('Looks like there was a problem. Status Code: ' + response.status);
+					return;
+				}
+
+				response.json().then(function(data) {
+					document.getElementById("num-astros").innerHTML=data['number']
+					var ul = document.getElementById('astros-list');
+					for (var i=0; i<data['number']; i++) {
+						var li = document.createElement("LI");
+						ul.appendChild(li);
+						li.innerHTML = data["people"][i]["name"]
+					}
+				});
+			}
+		)
+		.catch(function(err) {
+			console.log('Fetch Error :-S', err);
+	});
+}
