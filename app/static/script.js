@@ -1,7 +1,6 @@
 console.log("Hello");
-
+getAstronauts();
 window.onload = function(){ 
-	this.getAstronauts();
 	this.getData();
 	this.setInterval(this.getData, 5000);
 }
@@ -34,7 +33,7 @@ function getData() {
 function getPassTimes() {
 	var lat = document.getElementById('lat-input').value;
 	var long = document.getElementById('long-input').value;
-	var url = '/_pass_times/'+lat+'/'+long
+	var url = '/_get_pass_times/'+lat+'/'+long
 	fetch(url)
 		.then(
 			function(response) {

@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block page_content %}
+
+<div class="container">
+    <div id="pass-times">
+        <h2>Get Pass Times</h2>
+        <div class="form">
+            <label for="lat-input">Latitude:</label>
+            <input type="text" id="lat-input" name="lat-input"><br><br>
+            <label for="long-input">Longitude:</label>
+            <input type="text" id="long-input" name="long-input"><br><br>
+            <button id="pass-time-submit">Submit</button>
+        </div>
+        <div class="results">
+            <ul id="time-list">
+
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}

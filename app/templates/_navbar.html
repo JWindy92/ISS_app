@@ -1,0 +1,15 @@
+{% block additional_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='navbar.css') }}">
+{% endblock %}
+
+<header>
+    <a href="{{ url_for('index') }}"><img class="logo" src="{{ url_for('static', filename='images/iss_logo_white.png')}}" alt="logo"></a>
+    <nav>
+        <ul class=nav_links>
+            <li><a href="{{ url_for('current') }}"><img src="{{ url_for('static', filename='images/icons/001-focus.png')}}" alt=""></a></li>
+            <li><a href="{{ url_for('pass_times') }}"><img src="{{ url_for('static', filename='images/icons/002-time.png')}}" alt=""></a></li>
+            <li><a href="{{ url_for('astros') }}"><img src="{{ url_for('static', filename='images/icons/003-astronaut.png')}}" alt=""></a></li>
+        </ul>
+    </nav>
+    <a class="cta" href="#"><button>Contact</button></a>
+</header>

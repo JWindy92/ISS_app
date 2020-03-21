@@ -1,27 +1,6 @@
-<!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>AJAX Playgroud</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-    </head>
-    <body>
-        <div class="header"><h1>I.S.S. Data</h1></div>
-        {% with messages = get_flashed_messages() %}
-        {% if messages %}
-        <ul>
-            {% for message in messages %}
-            <li>{{ message }}</li>
-            {% endfor %}
-        </ul>
-        {% endif %}
-        {% endwith %}
+{% extends "base.html" %}
+
+    {% block page_content %}
         <div id="main-content">
             <div id="current">
                 <h2>Current Location</h2>
@@ -46,7 +25,7 @@
             </div>
 
             
-            <div>
+            <div id="astros">
                 <h2>There are currently <span id="num-astros"></span> astronauts in space</h2>
                 <ul id='astros-list'>
                     
@@ -54,6 +33,4 @@
             </div>
         </div>
         
-        <script src="{{ url_for('static', filename='script.js') }}" async defer></script>
-    </body>
-</html>
+    {% endblock %}

@@ -7,8 +7,20 @@ import requests
 def index():
     return render_template('index.html')
 
-@app.route('/_pass_times/<string:lat>/<string:lon>')
-def pass_times(lat, lon):       
+@app.route('/current')
+def current():
+    return render_template('current.html')
+
+@app.route('/pass_times')
+def pass_times():
+    return render_template('pass_times.html')
+
+@app.route('/astros')
+def astros():
+    return render_template('astros.html')
+
+@app.route('/_get_pass_times/<string:lat>/<string:lon>')
+def get_pass_times(lat, lon):       
     try:
         lat = float(lat)
         lon = float(lon)
