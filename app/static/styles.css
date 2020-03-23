@@ -67,11 +67,14 @@ body {
     color: black;
 }
 
-.map {
-    border: 1px solid blueviolet;
-    width: 70%;
-    height: 40vh;
+#mapid {
+    width: 75%;
+    height: 45vh;
     margin: auto;
+}
+
+#mapid a {
+    font-size: 9px;
 }
 
 .dev-credit {
