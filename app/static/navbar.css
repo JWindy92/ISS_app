@@ -1,8 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:500&display=swap');
 
 header {
-    border-bottom: 1px solid black;
-    background-color: black;
+    background-color: #555;
 }
 
 li, a, button{
@@ -55,6 +54,7 @@ button {
     border-radius: 50px;
     cursor: pointer;
     transition: all 0.3s ease 0s;
+    margin-left: 68px;
 }
 
 button:hover {
@@ -92,6 +92,16 @@ button:hover {
     transition: opacity 0.2s ease-in;
 }
 
+.nav-icon .tooltip::after {
+    content: " ";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent rgb(0,136,269) transparent;
+}
 
 .nav-icon:hover .tooltip {
     opacity: 1;
@@ -99,6 +109,8 @@ button:hover {
 
 @media screen and (max-width: 768px) {
     .nav_links {
+        background-color: #555;
+        border-radius: 5px 0 0 5px;
         order: 3;
         position: absolute;
         right: 0px;
@@ -108,7 +120,7 @@ button:hover {
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: space-between;
+        justify-content: space-around;
     }
 
     .nav-icon .tooltip{
@@ -116,4 +128,14 @@ button:hover {
         left: -450%;
     }
     
+    .nav-icon .tooltip::after {
+        content: " ";
+        position: absolute;
+        top: 50%;
+        left: 104%; /* To the right of the tooltip */
+        margin-top: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: transparent transparent transparent rgb(0,136,269);
+    }
 }

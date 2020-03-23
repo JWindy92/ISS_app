@@ -1,6 +1,5 @@
 from app import app
 from flask import render_template, url_for, flash
-from app.forms import PassTimeField
 import requests
 
 @app.route('/')

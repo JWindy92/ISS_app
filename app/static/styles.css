@@ -4,12 +4,88 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    background-color: #d3d3d3;
     color: ivory;
     font-family: "Montserrat", sans-serif;
     overflow-x: visible;
 }
 
+body {
+    background-color: #d3d3d3;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 90vw;
+    margin: auto;
+    margin-top: 10vh;
+}
+
+.container h2, p {
+    color: black;
+}
+
+#latitude, #longitude, #num-astros {
+    color: rgb(0,136,269)
+}
+
+.header {
+    margin: 5vh auto 0;
+    font-size: 25px;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 10vh;
+    margin: 5vh auto 5vh;
+}
+
+.content ul {
+    list-style: none;
+}
+
+#astros-list li{
+    color: black;
+}
+
+.form label, input{
+    color: black;
+}
+
+.results {
+    margin: auto;
+}
+
+.results ul{
+    list-style: none;
+}
+
+.results ul li {
+    color: black;
+}
+
+.map {
+    border: 1px solid blueviolet;
+    width: 70%;
+    height: 40vh;
+    margin: auto;
+}
+
 .dev-credit {
     display: none;
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        width: 85vw;
+        margin-left: 25px;
+        margin-top: 10vh;
+    }
+
+    .map {
+        width: 80%;
+    }
 }
