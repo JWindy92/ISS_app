@@ -1,20 +1,19 @@
-console.log("Hello");
+
 getAstronauts();
-var lat = 0;
-var lng = 0;
-var mymap = L.map('mapid').setView([lat, lng], 2);
+var mymap = L.map('mapid').setView([0,0], 2);
+var marker = L.marker([0,0]).addTo(mymap);
+L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+	attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+	maxZoom: 18,
+	id: 'mapbox/streets-v11',
+	tileSize: 512,
+	zoomOffset: -1,
+	accessToken: 'pk.eyJ1Ijoiam9obndpZDkyIiwiYSI6ImNrODN1Ymd1MTAzN28zbHBqaGx1MnV6M3UifQ.lKGGGN514FvC70fncNHbMg'
+}).addTo(mymap);
+
 window.onload = function(){ 
 	this.getData();
 	this.setInterval(this.getData, 5000);
-	
-	L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
-		attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-		maxZoom: 18,
-		id: 'mapbox/streets-v11',
-		tileSize: 512,
-		zoomOffset: -1,
-		accessToken: 'pk.eyJ1Ijoiam9obndpZDkyIiwiYSI6ImNrODN1Ymd1MTAzN28zbHBqaGx1MnV6M3UifQ.lKGGGN514FvC70fncNHbMg'
-	}).addTo(mymap);
 }
 
 var pass_time_submit = document.getElementById("pass-time-submit");
@@ -36,6 +35,7 @@ function getData() {
 						lng = data['iss_position']['longitude'];
 						document.getElementById('latitude').innerHTML=lat;
 						document.getElementById('longitude').innerHTML=lng;
+						moveMarker(marker, lat, lng);
 						mymap.panTo([lat,lng]);
 				});
 			}
@@ -43,6 +43,13 @@ function getData() {
 		.catch(function(err) {
 			console.log('Fetch Error :-S', err);
 		});
+}
+
+function moveMarker(marker, newLat, newLng) {
+    var latlng = marker.getLatLng();
+	latlng['lat'] = newLat;
+	latlng['lng'] = newLng
+    marker.setLatLng(latlng);
 }
 
 function getPassTimes() {
